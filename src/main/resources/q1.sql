@@ -1,15 +1,14 @@
 -- -- 开启 mini-batch
--- SET table.exec.mini-batch.enabled=true
+-- SET table.exec.mini-batch.enabled=true;
 -- -- mini-batch的时间间隔，即作业需要额外忍受的延迟
--- SET table.exec.mini-batch.allow-latency=5s
+-- SET table.exec.mini-batch.allow-latency=1s;
 -- -- 一个 mini-batch 中允许最多缓存的数据
--- SET table.exec.mini-batch.size=5000
---
+-- SET table.exec.mini-batch.size=1000;
 -- -- 开启 local-global 优化
--- SET table.optimizer.agg-phase-strategy=TWO_PHASE
+-- SET table.optimizer.agg-phase-strategy=TWO_PHASE;
 --
 -- -- 开启 distinct agg 切分
--- SET table.optimizer.distinct-agg.split.enabled=true
+-- SET table.optimizer.distinct-agg.split.enabled=true;
 
 
 -- source
@@ -44,7 +43,7 @@ CREATE TABLE pvuv_sink (
     'connector.table' = 'pvuv_sink',
     'connector.username' = 'root',
     'connector.password' = '123456',
-    'connector.write.flush.max-rows' = '500'
+    'connector.write.flush.max-rows' = '1'
 );
 
 
