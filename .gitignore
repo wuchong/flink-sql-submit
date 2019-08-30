@@ -15,7 +15,6 @@ tmp
 *.swp
 *.jar
 *.zip
-*.log
 *.pyc
 .DS_Store
 build-target

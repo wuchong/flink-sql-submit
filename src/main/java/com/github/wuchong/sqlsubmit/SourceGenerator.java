@@ -33,7 +33,7 @@ public class SourceGenerator {
             speed = Long.valueOf(args[0]);
         }
 
-        try (InputStream inputStream = UserBehaviorLogs.class.getClassLoader().getResourceAsStream("user_behavior.log")) {
+        try (InputStream inputStream = SourceGenerator.class.getClassLoader().getResourceAsStream("user_behavior.log")) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             int counter = 0;
             long start = System.nanoTime();

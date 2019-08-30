@@ -23,6 +23,3 @@ source "$(dirname "$0")"/common.sh
 echo "Preparing Kafka..."
 
 start_kafka_cluster
-
-create_kafka_json_source test-json
-create_kafka_topic 1 1 test-enriched
