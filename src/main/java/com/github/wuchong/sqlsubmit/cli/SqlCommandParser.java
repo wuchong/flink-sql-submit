@@ -40,7 +40,7 @@ public final class SqlCommandParser {
 		List<SqlCommandCall> calls = new ArrayList<>();
 		StringBuilder stmt = new StringBuilder();
 		for (String line : lines) {
-			if (line.trim().isEmpty() || line.startsWith("-- ")) {
+			if (line.trim().isEmpty() || line.startsWith("--")) {
 				// skip empty line and comment line
 				continue;
 			}

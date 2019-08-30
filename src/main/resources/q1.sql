@@ -35,7 +35,7 @@ CREATE TABLE user_log (
 
 -- sink
 CREATE TABLE pvuv_sink (
-    date_time VARCHAR,
+    dt VARCHAR,
     pv BIGINT,
     uv BIGINT
 ) WITH (
@@ -43,14 +43,15 @@ CREATE TABLE pvuv_sink (
     'connector.url' = 'jdbc:mysql://localhost:3306/flink-test',
     'connector.table' = 'pvuv_sink',
     'connector.username' = 'root',
-    'connector.password' = '123456'
+    'connector.password' = '123456',
+    'connector.write.flush.max-rows' = '500'
 );
 
 
 INSERT INTO pvuv_sink
 SELECT
-  DATE_FORMAT(ts, 'yyyy-MM-dd HH:00') hour,
+  DATE_FORMAT(ts, 'yyyy-MM-dd HH:00') dt,
   COUNT(*) AS pv,
   COUNT(DISTINCT user_id) AS uv
 FROM user_log
-GROUP BY DATE_FORMAT(ts, 'yyyy-MM-dd HH:00') hour;
+GROUP BY DATE_FORMAT(ts, 'yyyy-MM-dd HH:00');

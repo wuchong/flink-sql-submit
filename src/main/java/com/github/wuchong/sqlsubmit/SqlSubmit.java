@@ -56,18 +56,12 @@ public class SqlSubmit {
                 .inStreamingMode()
                 .build();
         this.tEnv = TableEnvironment.create(settings);
-        List<String> sql = replaceSql(Files.readAllLines(Paths.get(workSpace + "/" + sqlFilePath)));
+        List<String> sql = Files.readAllLines(Paths.get(workSpace + "/" + sqlFilePath));
         List<SqlCommandCall> calls = SqlCommandParser.parse(sql);
         for (SqlCommandCall call : calls) {
             callCommand(call);
         }
         tEnv.execute("SQL Job");
-    }
-
-    private List<String> replaceSql(List<String> sql) {
-        return sql.stream()
-                .map(s -> s.replaceAll("\\$\\{work_space}", workSpace))
-                .collect(Collectors.toList());
     }
 
     // --------------------------------------------------------------------------------------------

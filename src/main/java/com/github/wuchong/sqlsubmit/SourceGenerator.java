@@ -32,26 +32,23 @@ public class SourceGenerator {
         if (args.length > 0) {
             speed = Long.valueOf(args[0]);
         }
+        long delay = 1000_000 / speed; // 每条耗时多少毫秒
 
         try (InputStream inputStream = SourceGenerator.class.getClassLoader().getResourceAsStream("user_behavior.log")) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            int counter = 0;
             long start = System.nanoTime();
             while (reader.ready()) {
                 String line = reader.readLine();
                 System.out.println(line);
-                counter++;
-                if (counter >= speed) {
-                    long end = System.nanoTime();
-                    long diff = end - start;
-                    while (diff < 1000_000_000) {
-                        Thread.sleep(1);
-                        end = System.nanoTime();
-                        diff = end - start;
-                    }
-                    start = end;
-                    counter = 0;
+
+                long end = System.nanoTime();
+                long diff = end - start;
+                while (diff < (delay*1000)) {
+                    Thread.sleep(1);
+                    end = System.nanoTime();
+                    diff = end - start;
                 }
+                start = end;
             }
             reader.close();
         } catch (IOException e) {
