@@ -17,7 +17,7 @@
 # limitations under the License.
 ################################################################################
 
-FLINK_DIR=/Users/wuchong/dev/install/flink-1.10-SNAPSHOT
+FLINK_DIR=/Users/wuchong/Downloads/flink-1.9/flink-1.9.0
 KAFKA_DIR=/Users/wuchong/dev/kafka
 PROJECT_DIR=/Users/wuchong/Workspace/Miscellaneous/flink-sql-submit
 
