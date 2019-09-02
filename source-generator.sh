@@ -17,7 +17,7 @@
 # limitations under the License.
 ################################################################################
 
-source "$(dirname "$0")"/common.sh
+source "$(dirname "$0")"/kafka-common.sh
 
 # prepare Kafka
 echo "Generating sources..."

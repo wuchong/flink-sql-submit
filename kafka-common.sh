@@ -17,10 +17,7 @@
 # limitations under the License.
 ################################################################################
 
-FLINK_DIR=/Users/wuchong/dev/install/flink-1.9.0
-KAFKA_DIR=/Users/wuchong/dev/kafka
-PROJECT_DIR=/Users/wuchong/Workspace/Miscellaneous/flink-sql-submit
-
+source "$(dirname "$0")"/env.sh
 
 function create_kafka_json_source {
     topicName="$1"

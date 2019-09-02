@@ -17,9 +17,5 @@
 # limitations under the License.
 ################################################################################
 
-source "$(dirname "$0")"/kafka-common.sh
-
-# prepare Kafka
-echo "Preparing Kafka..."
-
-start_kafka_cluster
+FLINK_DIR=/Users/wuchong/dev/install/flink-1.9.0
+KAFKA_DIR=/Users/wuchong/dev/install/kafka_2.11-2.2.0

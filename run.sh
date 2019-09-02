@@ -17,8 +17,7 @@
 # limitations under the License.
 ################################################################################
 
-source "$(dirname "$0")"/common.sh
+source "$(dirname "$0")"/env.sh
 
-FLINK_DIR=/Users/wuchong/dev/install/flink-1.9.0
-
+PROJECT_DIR=`pwd`
 $FLINK_DIR/bin/flink run -d -p 4 target/flink-sql-submit.jar -w "${PROJECT_DIR}"/src/main/resources/ -f "$1".sql
